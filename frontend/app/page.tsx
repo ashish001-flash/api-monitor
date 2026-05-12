@@ -46,20 +46,41 @@ export default function Home() {
       if (h.enabled && h.key) acc[h.key] = h.value;
       return acc;
     }, {});
-
     try {
-      // Call our proxy backend
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
-      const res = await axios.post(`${apiUrl}/api/proxy`, {
-        method,
-        url: fullUrl,
-        headers: activeHeaders,
-        data: ['POST', 'PUT', 'PATCH', 'DELETE'].includes(method) ? JSON.parse(body) : null
-      });
+      let finalResponseData;
+      const requestBody = ['POST', 'PUT', 'PATCH', 'DELETE'].includes(method) ? (body ? JSON.parse(body) : null) : null;
 
-      setResponse(res.data);
+      try {
+        const startTime = Date.now();
+        const directRes = await axios({
+          method,
+          url: fullUrl,
+          headers: activeHeaders,
+          data: requestBody,
+          validateStatus: () => true 
+        });
 
-      // Add to history
+        finalResponseData = {
+          status: directRes.status,
+          statusText: directRes.statusText,
+          headers: directRes.headers,
+          data: directRes.data,
+          latency: Date.now() - startTime,
+          size: JSON.stringify(directRes.data).length
+        };
+      } catch (directErr) {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+        const proxyRes = await axios.post(`${apiUrl}/api/proxy`, {
+          method,
+          url: fullUrl,
+          headers: activeHeaders,
+          data: requestBody
+        });
+        finalResponseData = proxyRes.data;
+      }
+
+      setResponse(finalResponseData);
+
       const historyItem = { method, url, timestamp: Date.now() };
       const newHistory = [historyItem, ...history.slice(0, 19)];
       setHistory(newHistory);
