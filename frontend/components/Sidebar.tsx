@@ -16,10 +16,10 @@ export function Sidebar({ history, collections, onSelect, onClearHistory }: Side
     <div className="w-64 h-full border-r border-border bg-card/30 flex flex-col overflow-hidden">
       <div className="p-4 border-b border-border flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center">
-            <span className="font-bold text-white text-sm">AT</span>
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-purple-400 flex items-center justify-center shadow-lg shadow-primary/20">
+            <span className="font-bold text-white text-xs">AT</span>
           </div>
-          <h1 className="font-semibold text-lg bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">
+          <h1 className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-fuchsia-400 to-rose-400 tracking-tight">
             Api-Tester
           </h1>
         </div>

@@ -135,7 +135,7 @@ export default function Home() {
             <div className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
           </div>
           <div className="flex items-center gap-3">
-            <button onClick={saveToCollection} className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-indigo-600/10 text-indigo-400 hover:bg-indigo-600/20 transition-all border border-indigo-500/20">
+            <button onClick={saveToCollection} className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-primary/10 text-primary hover:bg-primary/20 transition-all border border-primary/20">
               <Save size={16} />
               <span>Save</span>
             </button>
@@ -164,9 +164,9 @@ export default function Home() {
               <Tabs defaultValue="params" className="flex-1 flex flex-col">
                 <div className="px-4 pt-4">
                   <TabsList className="bg-accent/30 w-full justify-start gap-1 p-1 h-auto">
-                    <TabsTrigger value="params" className="data-[state=active]:bg-indigo-600 data-[state=active]:text-white px-4 py-1.5 rounded-md text-xs font-semibold transition-all">Params</TabsTrigger>
-                    <TabsTrigger value="headers" className="data-[state=active]:bg-indigo-600 data-[state=active]:text-white px-4 py-1.5 rounded-md text-xs font-semibold transition-all">Headers</TabsTrigger>
-                    <TabsTrigger value="body" className="data-[state=active]:bg-indigo-600 data-[state=active]:text-white px-4 py-1.5 rounded-md text-xs font-semibold transition-all">Body</TabsTrigger>
+                    <TabsTrigger value="params" className="data-[state=active]:bg-primary data-[state=active]:text-white px-4 py-1.5 rounded-md text-xs font-semibold transition-all">Params</TabsTrigger>
+                    <TabsTrigger value="headers" className="data-[state=active]:bg-primary data-[state=active]:text-white px-4 py-1.5 rounded-md text-xs font-semibold transition-all">Headers</TabsTrigger>
+                    <TabsTrigger value="body" className="data-[state=active]:bg-primary data-[state=active]:text-white px-4 py-1.5 rounded-md text-xs font-semibold transition-all">Body</TabsTrigger>
                   </TabsList>
                 </div>
                 

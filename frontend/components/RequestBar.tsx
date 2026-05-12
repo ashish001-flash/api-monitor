@@ -22,7 +22,7 @@ export function RequestBar({ method, setMethod, url, setUrl, onSend, isLoading }
         <select
           value={method}
           onChange={(e) => setMethod(e.target.value)}
-          className="appearance-none bg-accent/50 text-indigo-400 font-bold px-4 py-2 pr-10 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-indigo-500/50 cursor-pointer transition-all"
+          className="appearance-none bg-accent/50 text-primary font-bold px-4 py-2 pr-10 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-pointer transition-all"
         >
           {METHODS.map((m) => (
             <option key={m} value={m}>{m}</option>
@@ -36,15 +36,15 @@ export function RequestBar({ method, setMethod, url, setUrl, onSend, isLoading }
         value={url}
         onChange={(e) => setUrl(e.target.value)}
         placeholder="https://api.example.com/v1/resource"
-        className="flex-1 bg-accent/50 border border-border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm"
+        className="flex-1 bg-accent/50 border border-border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm"
         onKeyDown={(e) => e.key === 'Enter' && onSend()}
       />
 
       <button
         onClick={onSend}
-        disabled={isLoading || !url}
+        disabled={isLoading}
         className={cn(
-          "bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold px-6 py-2 rounded-lg flex items-center gap-2 transition-all shadow-lg shadow-indigo-500/20 active:scale-95",
+          "bg-primary hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold px-8 py-2 rounded-lg flex items-center gap-2 transition-all shadow-xl shadow-primary/20 active:scale-95 whitespace-nowrap",
           isLoading && "animate-pulse"
         )}
       >
