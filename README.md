@@ -1,6 +1,6 @@
-# RapidRequest - Premium API Tester
+# API Tester - Premium API Client
 
-RapidRequest is a high-end, fullstack API client built with Next.js and Node.js.
+API Tester is a high-end, fullstack API client built with Next.js and Node.js.
 
 ## Features
 - **Modern UI**: Dark mode, glassmorphism, and sleek typography.

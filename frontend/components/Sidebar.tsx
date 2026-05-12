@@ -17,7 +17,7 @@ export function Sidebar({ history, collections, onSelect, onClearHistory }: Side
       <div className="p-4 border-b border-border flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center">
-            <span className="font-bold text-white text-sm">RR</span>
+            <span className="font-bold text-white text-sm">AT</span>
           </div>
           <h1 className="font-semibold text-lg bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">
             Api-Tester

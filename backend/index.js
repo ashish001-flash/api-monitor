@@ -49,5 +49,5 @@ app.post('/api/proxy', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`RapidRequest Proxy running on http://localhost:${PORT}`);
+  console.log(`API Tester Proxy running on http://localhost:${PORT}`);
 });

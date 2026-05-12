@@ -23,8 +23,8 @@ export default function Home() {
 
   // Load from localStorage
   useEffect(() => {
-    const savedHistory = localStorage.getItem('rr_history');
-    const savedCollections = localStorage.getItem('rr_collections');
+    const savedHistory = localStorage.getItem('at_history');
+    const savedCollections = localStorage.getItem('at_collections');
     if (savedHistory) setHistory(JSON.parse(savedHistory));
     if (savedCollections) setCollections(JSON.parse(savedCollections));
   }, []);
@@ -62,7 +62,7 @@ export default function Home() {
       const historyItem = { method, url, timestamp: Date.now() };
       const newHistory = [historyItem, ...history.slice(0, 19)];
       setHistory(newHistory);
-      localStorage.setItem('rr_history', JSON.stringify(newHistory));
+      localStorage.setItem('at_history', JSON.stringify(newHistory));
 
     } catch (err: any) {
       setResponse({
@@ -88,13 +88,13 @@ export default function Home() {
       const newItem = { name, method, url, params, headers, body };
       const newCollections = [...collections, newItem];
       setCollections(newCollections);
-      localStorage.setItem('rr_collections', JSON.stringify(newCollections));
+      localStorage.setItem('at_collections', JSON.stringify(newCollections));
     }
   };
 
   const clearHistory = () => {
     setHistory([]);
-    localStorage.removeItem('rr_history');
+    localStorage.removeItem('at_history');
   };
 
   return (
