@@ -49,7 +49,8 @@ export default function Home() {
 
     try {
       // Call our proxy backend
-      const res = await axios.post('http://localhost:3001/api/proxy', {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+      const res = await axios.post(`${apiUrl}/api/proxy`, {
         method,
         url: fullUrl,
         headers: activeHeaders,
